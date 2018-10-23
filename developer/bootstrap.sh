@@ -1,28 +1,92 @@
 #!/usr/bin/env bash
-cat tools/lib/banner.txt
+
+NODE_VERSION=10.12.0
+NPM_VERSION=6.4.1
+
+## Save script's current directory
+#DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#cd "${DIR}"
 
 install_brew_if_missing() {
-    if ! [ -x "$(command -v brew)" ]; then
-        echo ">>> $(tput setaf 1)Error: Homebrew is not installed.$(tput sgr 0)\n\n"
-        while true; do
-            read -p "Do you wish to install this Hombrew?" yn
-            case $yn in
-                [Yy]* ) /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; break;;
-                [Nn]* ) exit;;
-                * ) echo "Please answer yes or no.";;
-            esac
-        done
+    which -s brew
+    if [[ $? != 0 ]] ; then
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
     else
-        echo ">>> $(tput setaf 2)Homebrew is installed - skipping installation.$(tput sgr 0)\n\n"
+        brew update
+    fi
+}
+
+install_node_if_missing() {
+    echo "Checking for Node version ${NODE_VERSION}"
+    node --version | grep ${NODE_VERSION}
+    if [[ $? != 0 ]] ; then
+        # Install Node
+        cd `brew --prefix`
+        $(brew versions node | grep ${NODE_VERSION} | cut -c 16- -)
+        brew install node
+
+        # Reset Homebrew formulae versions
+        git reset HEAD `brew --repository` && git checkout -- `brew --repository`
+    fi
+}
+
+install_NPM_if_missing() {
+    echo "Checking for NPM version ${NPM_VERION}"
+    npm --version | grep ${NPM_VERSION}
+    if [[ $? != 0 ]] ; then
+        echo "Downloading npm"
+        git clone git://github.com/isaacs/npm.git && cd npm
+        git checkout v${NPM_VERSION}
+        make install
     fi
 }
 
 install_dependencies() {
-    echo 'Installing dependencies using project Brewfile' >&2
-    brew bundle
+#    echo 'Installing dependencies using brewfile' >&2
+#    brew bundle
+
+    which -s ng || brew install angular-cli
+    which -s git || brew install git
 }
 
 install_brew_if_missing
+install_node_if_missing
+install_NPM_if_missing
 install_dependencies
 
-echo "\n\n$(tput setaf 5)Your development machine has been brewed. Happy coding courtesy of the Notorious RBG Team$(tput setaf 0)\n\n"
+
+echo "\n\n Your Dev Environment has been set up. Happy Coding!"
+
+
+######## ADD HEROKU TO PROJECT ??????? ####################
+
+## Check if Heroku toolbelt is installed
+##
+#which -s heroku
+#if [[ $? != 0 ]] ; then
+#    # Install Heroku toolbelt
+#    echo "Downloading Heroku toolbelt"
+#    curl -O http://assets.heroku.com/heroku-toolbelt/heroku-toolbelt.pkg
+#    open /tmp/heroku-toolbelt.pkg
+#    read -p "Press return when done with Heroku installation"
+#
+#    # open https://api.heroku.com/login
+#    # https://api.heroku.com/signup
+#else
+#    heroku update
+#fi
+#
+
+
+##
+## Heroku setup
+##
+#heroku login
+#heroku keys | grep 'No keys' && heroku keys:add
+#
+#cd "${DIR}"
+#git remote | grep heroku > /dev/null || git remote add heroku git@heroku.com:app-name.git
+#
+## Install node packages
+#npm install
+#which -s http-console || npm install -g http-console

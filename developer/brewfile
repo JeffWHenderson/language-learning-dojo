@@ -1,7 +1,3 @@
-##
-## required tools
-##
-
+##tools
 brew "angular-cli"
-
-brew "node"
+brew "git"
