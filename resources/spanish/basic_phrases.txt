@@ -1,0 +1,23 @@
+KEY CONCEPTS TO COVER IN FIRST LESSONS
+-- gender
+-- verb conjugation
+-- simple tenses
+-- word order
+--  pronunciation should be implicit
+
+hello, I am Jeff.
+
+you are my friend
+
+he is a man
+she is a woman
+
+we are friends
+you all are enemies
+they are enemies
+
+are you friends?
+are they friends?
+
+I like to eat vegetables
+

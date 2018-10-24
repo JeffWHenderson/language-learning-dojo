@@ -7,7 +7,7 @@ NPM_VERSION=6.4.1
 #DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #cd "${DIR}"
 
-install_brew_if_missing() {
+install_or_update_homebrew() {
     which -s brew
     if [[ $? != 0 ]] ; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
@@ -49,7 +49,7 @@ install_dependencies() {
     which -s git || brew install git
 }
 
-install_brew_if_missing
+install_or_update_homebrew
 install_node_if_missing
 install_NPM_if_missing
 install_dependencies
