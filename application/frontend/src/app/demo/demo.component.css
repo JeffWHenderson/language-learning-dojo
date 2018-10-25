@@ -1,0 +1,13 @@
+.center {
+    margin:  auto;
+    text-align: center;
+}
+
+.card {
+    text-align: center;
+    margin-top: 10px;
+    border: solid black 1px;
+    width: 400px;
+    height: 200px;
+    padding-top: 70px;
+}

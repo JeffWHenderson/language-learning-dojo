@@ -1,10 +1,14 @@
-<button (click)="toggleLanguage()">SPANISH/CHINESE TOGGLE</button>
+<div class="center">
+  <button (click)="toggleLanguage()">SPANISH/CHINESE TOGGLE</button>
 
-<p>
-  {{basicSentence}}
-</p>
-<p>
-  {{basicTranslation}}
-</p>
+  <div class="center card" (click)="nextTranslation()">
+    <p>
+      {{basicSentence}}
+    </p>
+    <p>
+      {{basicTranslation}}
+    </p>
+  </div>
 
-<button (click)="nextTranslation()">NEXT TRANSLATION</button>
+  <audio src="../../assets/sentence{{counter}}.m4a" controls autoplay></audio>
+</div>
