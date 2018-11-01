@@ -1,6 +1,14 @@
-<div class="center">
-  <button (click)="toggleLanguage()">SPANISH/CHINESE TOGGLE</button>
+<div class="row">
+  <button class="selectLanguage" (click)="toggleLanguage()">SPANISH/CHINESE TOGGLE</button>
+</div>
 
+<div class="column">
+  <h1>LESSON 1 VIDEO</h1>
+  <iframe width="450" height="315" src="https://www.youtube.com/embed/93hq0YU3Gqk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="column">
+  <h1>FLASH CARDS</h1>
   <div class="center card" (click)="nextTranslation()">
     <p>
       {{basicSentence}}
@@ -9,6 +17,31 @@
       {{basicTranslation}}
     </p>
   </div>
-
   <audio src="../../assets/sentence{{counter}}.m4a" controls autoplay></audio>
 </div>
+
+<div class="column">
+  <h1>Sentence List</h1>
+  <div *ngIf="spanish">
+    <p>{{spanishSentences[0]}}</p>
+    <p>{{spanishTranslations[0]}}</p>
+    <br>
+    <p>{{spanishSentences[1]}}</p>
+    <p>{{spanishTranslations[1]}}</p>
+    <br>
+    <p>{{spanishSentences[2]}}</p>
+    <p>{{spanishTranslations[2]}}</p>
+  </div>
+
+  <div *ngIf="!spanish">
+    <p>{{chineseSentences[0]}}</p>
+    <p>{{chineseTranslations[0]}}</p>
+    <br>
+    <p>{{chineseSentences[1]}}</p>
+    <p>{{chineseTranslations[1]}}</p>
+    <br>
+    <p>{{chineseSentences[2]}}</p>
+    <p>{{chineseTranslations[2]}}</p>
+  </div>
+</div>
+

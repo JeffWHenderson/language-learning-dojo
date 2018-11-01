@@ -1,8 +1,3 @@
-.center {
-    margin:  auto;
-    text-align: center;
-}
-
 .card {
     text-align: center;
     margin-top: 10px;
@@ -10,4 +5,21 @@
     width: 400px;
     height: 200px;
     padding-top: 70px;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    width: 100%;
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.selectLanguage {   
+    width: 10%;
 }
