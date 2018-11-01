@@ -1,47 +1,62 @@
+<div>
+  <button class="button" (click)="toggleLanguage()">SPANISH/CHINESE TOGGLE</button>
+</div>
+
 <div class="row">
-  <button class="selectLanguage" (click)="toggleLanguage()">SPANISH/CHINESE TOGGLE</button>
-</div>
-
-<div class="column">
-  <h1>LESSON 1 VIDEO</h1>
-  <iframe width="450" height="315" src="https://www.youtube.com/embed/93hq0YU3Gqk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-<div class="column">
-  <h1>FLASH CARDS</h1>
-  <div class="center card" (click)="nextTranslation()">
-    <p>
-      {{basicSentence}}
-    </p>
-    <p>
-      {{basicTranslation}}
-    </p>
-  </div>
-  <audio src="../../assets/sentence{{counter}}.m4a" controls autoplay></audio>
-</div>
-
-<div class="column">
-  <h1>Sentence List</h1>
-  <div *ngIf="spanish">
-    <p>{{spanishSentences[0]}}</p>
-    <p>{{spanishTranslations[0]}}</p>
-    <br>
-    <p>{{spanishSentences[1]}}</p>
-    <p>{{spanishTranslations[1]}}</p>
-    <br>
-    <p>{{spanishSentences[2]}}</p>
-    <p>{{spanishTranslations[2]}}</p>
+  <div class="column">
+    <h1>LESSON 1 VIDEO</h1>
+    <iframe width="450" height="315" src="https://www.youtube.com/embed/93hq0YU3Gqk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
-  <div *ngIf="!spanish">
-    <p>{{chineseSentences[0]}}</p>
-    <p>{{chineseTranslations[0]}}</p>
-    <br>
-    <p>{{chineseSentences[1]}}</p>
-    <p>{{chineseTranslations[1]}}</p>
-    <br>
-    <p>{{chineseSentences[2]}}</p>
-    <p>{{chineseTranslations[2]}}</p>
+  <div class="column">
+    <h1>FLASH CARDS</h1>
+    <div class="center card" (click)="nextTranslation()">
+      <p>
+        {{basicSentence}}
+      </p>
+      <p>
+        {{basicTranslation}}
+      </p>
+    </div>
+    <audio src="../../assets/sentence{{counter}}.m4a" controls autoplay >{{autoplay}}</audio>
+  </div>
+
+  <div class="column">
+    <h1>Sentence List</h1>
+    <div *ngIf="spanish">
+      <p>{{spanishSentences[0]}}</p>
+      <p>{{spanishTranslations[0]}}</p>
+      <br>
+      <p>{{spanishSentences[1]}}</p>
+      <p>{{spanishTranslations[1]}}</p>
+      <br>
+      <p>{{spanishSentences[2]}}</p>
+      <p>{{spanishTranslations[2]}}</p>
+    </div>
+
+    <div *ngIf="!spanish">
+      <p>{{chineseSentences[0]}}</p>
+      <p>{{chineseTranslations[0]}}</p>
+      <br>
+      <p>{{chineseSentences[1]}}</p>
+      <p>{{chineseTranslations[1]}}</p>
+      <br>
+      <p>{{chineseSentences[2]}}</p>
+      <p>{{chineseTranslations[2]}}</p>
+    </div>
   </div>
 </div>
 
+<div class="column">
+  <p> This is an example of a bare bones version of lesson one page. </p>
+  <p>  each lesson would be a package of materials with a video lesson component, flash cards, and a sentence list.</p>
+  <p>  In the future (after having a lesson series with this minimum functionality) I would look to add:</p>
+  <ol>
+    <li>Automatic flash cards (hands free listening)</li>  
+    <li>Dialogues</li>
+    <li>gamification</li>
+    <li>customization (trying to avoid user accounts but there are some advantages)</li>
+    <li>lessons will not be panda sneezing videos necessarily</li>
+    <li>More Languages to support ...someday</li>
+  </ol>
+</div>
