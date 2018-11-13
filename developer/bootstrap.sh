@@ -49,6 +49,8 @@ install_dependencies() {
     which -s git || brew install git
 }
 
+# TODO: add docker here
+
 install_or_update_homebrew
 install_node_if_missing
 install_NPM_if_missing

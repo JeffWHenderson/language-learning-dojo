@@ -13,6 +13,9 @@ This is an open source project that is intended to help learn languages with a f
      $> cd language-learning-dojo/developer
      $> sh bootstrap.sh
 
+## Running as docker containers
+    TODO: add docker documentation
+
 # To start frontend
     
     ```
