@@ -16,12 +16,12 @@ describe('AppComponent', () => {
   it(`should have as title 'Chinese Dojo'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Chinese Dojo');
+    expect(app.title).toEqual('Language Learning Dojo');
   }));
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Chinese Dojo!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Language Learning Dojo!');
   }));
 });
