@@ -8,13 +8,23 @@ import { LessonFetcherService } from '../lesson/service/lesson-fetcher.service';
 })
 export class HeaderComponent implements OnInit {
   title = 'Language Learning Dojo';
+  language: String = "spanish";
+  lessonNumber: Number = 1
 
   constructor(private lessonFetcherService: LessonFetcherService) { }
 
   ngOnInit() {
   }
 
+  toggleLanguage() {
+    if( this.language === "spanish"){
+      this.language = "chinese"
+    } else {
+      this.language = "spanish"
+    }
+  }
+
   fetch() {
-    this.lessonFetcherService.getLesson("1");
+    this.lessonFetcherService.getLesson(this.language, this.lessonNumber);
   }
 }

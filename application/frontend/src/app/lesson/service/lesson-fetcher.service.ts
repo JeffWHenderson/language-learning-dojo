@@ -14,7 +14,7 @@ export class LessonFetcherService {
     this.subscribableLessonData$ = this.updateSubject.asObservable();
    }
 
-  getLesson(lessonNumber: String): void {
+  getLesson(language: String, lessonNumber: Number): void {
     // + lessonNumber
     this.http.get(`${this.BASE_URL}`).subscribe(result => {
       this.updateSubject.next(result);

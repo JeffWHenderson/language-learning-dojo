@@ -20,7 +20,7 @@ describe('LessonFetcherService', () => {
     let lessonFetcherService: LessonFetcherService = testBed.get(LessonFetcherService);
     let httpMock = testBed.get(HttpTestingController);
     
-    lessonFetcherService.getLesson("1");
+    lessonFetcherService.getLesson("spanish", 1);
 
     const request = httpMock.expectOne('http://localhost:8080');
     expect(request.request.method).toBe('GET');
