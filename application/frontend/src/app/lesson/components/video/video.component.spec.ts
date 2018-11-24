@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VideoComponent } from './video.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { LessonFetcherService } from '../../service/lesson-fetcher.service';
 
 describe('VideoComponent', () => {
   let component: VideoComponent;
@@ -8,7 +10,9 @@ describe('VideoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideoComponent ]
+      declarations: [ VideoComponent ],
+      imports: [ HttpClientTestingModule ],
+      providers: [LessonFetcherService]
     })
     .compileComponents();
   }));

@@ -22,7 +22,7 @@ describe('LessonFetcherService', () => {
     
     lessonFetcherService.getLesson("1");
 
-    const request = httpMock.expectOne('baseURL/api/1');
+    const request = httpMock.expectOne('http://localhost:8080');
     expect(request.request.method).toBe('GET');
     // when http call is done, mock return (happy, unhappy)
     // Happy expect an update subject to be updated async

@@ -15,12 +15,8 @@ export class SentenceListComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.subscriptions.add(this.lessonFetcherService.subscribableLessonData$.subscribe(results => {
+    this.subscriptions.add(this.lessonFetcherService.subscribableLessonData$.subscribe(results => {
         this.results = results.hello;
     }));
-  }
-
-  fetch() {
-    this.lessonFetcherService.getLesson("1");
   }
 }
