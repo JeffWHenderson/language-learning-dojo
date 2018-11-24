@@ -11,12 +11,16 @@ export class SentenceListComponent implements OnInit {
   private subscriptions: Subscription = new Subscription();
   private results;
   
-  constructor(private lessonFetcherService: LessonFetcherService) { }
+  constructor(private lessonFetcherService: LessonFetcherService) { 
+  }
 
   ngOnInit() {
       this.subscriptions.add(this.lessonFetcherService.subscribableLessonData$.subscribe(results => {
-        this.results = results;
+        this.results = results.hello;
     }));
   }
 
+  fetch() {
+    this.lessonFetcherService.getLesson("1");
+  }
 }

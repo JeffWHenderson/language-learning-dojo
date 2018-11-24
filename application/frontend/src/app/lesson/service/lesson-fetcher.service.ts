@@ -8,13 +8,15 @@ import { HttpClient } from '@angular/common/http';
 export class LessonFetcherService {
   subscribableLessonData$: Observable<any>;
   private updateSubject: Subject<any> = new Subject();
+  private BASE_URL = "http://localhost:8080";
 
   constructor(private http: HttpClient) {
     this.subscribableLessonData$ = this.updateSubject.asObservable();
    }
 
   getLesson(lessonNumber: String): void {
-    this.http.get("baseURL/api/" + lessonNumber).subscribe(result => {
+    // + lessonNumber
+    this.http.get(`${this.BASE_URL}`).subscribe(result => {
       this.updateSubject.next(result);
     })
   }

@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SentenceListComponent } from './components/sentence-list/sentence-list.component';
 import { FlashcardsComponent } from './components/flashcards/flashcards.component';
 import { VideoComponent } from './components/video/video.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   declarations: [
     VideoComponent,
@@ -16,7 +18,8 @@ import { VideoComponent } from './components/video/video.component';
   exports: [
     VideoComponent,
     FlashcardsComponent,
-    SentenceListComponent
-  ]
+    SentenceListComponent,
+  ],
+  providers: [ HttpClient ],
 })
 export class LessonModule { }
