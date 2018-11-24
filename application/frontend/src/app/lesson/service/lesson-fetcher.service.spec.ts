@@ -19,13 +19,6 @@ describe('LessonFetcherService', () => {
     let testBed: TestBed = getTestBed();
     let lessonFetcherService: LessonFetcherService = testBed.get(LessonFetcherService);
     let httpMock = testBed.get(HttpTestingController);
-
-    // TODO: MOVE SUBSCRIPTIONS CODE BEOLE TO COMPONENTS THAT SUBSCRIBE
-    // let subscriptions: Subscription = new Subscription();
-    
-    // subscriptions.add(lessonFetcherService.subscribableLessonData$.subscribe(sentence => {
-    //     console.log(sentence)
-    // }));
     
     lessonFetcherService.getLesson("1");
 
