@@ -16,7 +16,7 @@ export class LessonFetcherService {
 
   getLesson(language: String, lessonNumber: Number): void {
     // + lessonNumber
-    this.http.get(`${this.BASE_URL}`).subscribe(result => {
+    this.http.get(`${this.BASE_URL}/api/${language}/${lessonNumber}`).subscribe(result => {
       this.updateSubject.next(result);
     })
   }
